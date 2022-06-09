@@ -1,0 +1,55 @@
+version: 2
+
+models:
+  - name: stg_orders
+    description: Staging table based on orders, contains order data, with additional data such as order status, tracking, costs and shipping modes. 
+    columns:
+      - name: user_id
+        tests:
+          - not_null
+      - name: order_total
+        tests:
+          - not_null
+
+  - name: stg_users
+    description: Staging table based on users, contains user contact data, such as phone number, email and name of user.
+    columns:
+      - name: user_id
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_events
+    description: Staging table based on events, contains event Log of users webshop visits
+    columns:
+      - name: created_at
+        tests:
+          - not_null
+
+  - name: stg_products
+    description: Staging table based on products, contains current inventory of products with price data
+    columns:
+      - name: price
+        tests:
+          - not_null
+
+  - name: stg_order_items
+    description: Staging table based on order_items, contains items included in an order.
+    columns:
+      - name: quantity
+        tests:
+          - not_null
+
+  - name: stg_promos
+    description: Staging table based on promos, contains discount definitions.
+    columns:
+      - name: discount
+        tests:
+          - positive_values
+
+  - name: stg_addresses
+    description: Staging table based on addresses, contains discount definitions.
+    columns:
+      - name: address_id
+        tests:
+          - not_null

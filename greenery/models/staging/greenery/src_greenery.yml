@@ -1,0 +1,49 @@
+version: 2
+
+sources:
+
+  - name: greenery
+    schema: public
+    database: dbt
+
+    quoting:
+      database: false
+      schema: false
+      identifier: false
+
+    tables:
+      - name: orders 
+        loaded_at_field: created_at
+        description: >
+          Contains orders data, such as creation date, current status 
+          and costs associated with the generated order.
+      
+      - name: users
+        loaded_at_field: updated_at
+        description: >
+          Contains users contact details. 
+
+      - name: events
+        loaded_at_field: created_at
+        description: >
+          Log of events users do when going through the webshop.
+
+      - name: products
+        loaded_at_field: product_id
+        description: >
+          Inventory of products with current amount and price
+
+      - name: order_items
+        loaded_at_field: product_id
+        description: >
+          Log of items included in an order.
+
+      - name: promos
+        loaded_at_field: product_id
+        description: >
+          Definition table of discounts with flag for activity.
+
+      - name: addresses
+        loaded_at_field: address_id
+        description: >
+          Address table 
