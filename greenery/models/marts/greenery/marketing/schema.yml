@@ -1,0 +1,33 @@
+version: 2
+
+models:
+  - name: fct_repeat_rate
+    description: Repeat rate KPI, can be expanded by other dimensions ... country/ state / etc...
+    columns:
+      - name: repeat_rate
+        tests:
+          - not_null
+
+  - name: fct_popular_states
+    description: Aggregated Orders by State
+    columns:
+      - name: state
+        tests:
+          - not_null
+
+  - name: fct_shipping_services
+    description: Aggregated Orders by shipping services.. can be expanded to identify high costs per state etc...
+    columns:
+      - name: shipping_service
+        tests:
+          - not_null
+
+  - name: fct_website_funnel
+    description: Daily Stats on DAU, users, funnel performance
+
+
+  - name: fct_user360
+    description: A summary table of our users
+
+
+    

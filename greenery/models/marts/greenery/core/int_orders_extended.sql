@@ -4,12 +4,12 @@
   )
 }}
 
-select o.*,
+select o.*
 
 ,p.discount
-,p.status
+,p.promo_status
 ,a.address
-,a.zip_code
+,a.zipcode
 ,a.state
 ,a.country
 ,u.first_name
@@ -17,7 +17,7 @@ select o.*,
 ,u.email
 ,u.phone_number
 
-FROM {{ ref('greenery', 'stg_orders') }}
-left join {{ ref('greenery', 'stg_promo') }}p on p.promo_id = o.promo_id
+FROM {{ ref('greenery', 'stg_orders') }} o
+left join {{ ref('greenery', 'stg_promos') }}p on p.promo_id = o.promo_id
 left join {{ ref('greenery', 'stg_addresses') }} a on a.address_id = o.address_id
 left join {{ ref('greenery', 'stg_users') }} u on u.user_id = o.user_id

@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: fct_daily_page_visits
+    description: Daily Aggregations by reportdate, product, capturing daily funnels
+    columns:
+      - name: reportdate
+        tests:
+          - not_null
+
+  - name: fct_product_popularity
+    description: Overall ranked product list, with amount sold and some stats 
+    columns:
+      - name: product_name
+        tests:
+          - unique

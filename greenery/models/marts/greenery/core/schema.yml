@@ -22,10 +22,26 @@ models:
       - name: order_id 
         tests:
           - unique
+          - not_null
       - name: user_id
         tests:
           - not_null
 
-
   - name: int_events_extended
-    description: Aggregated 
+    description: Enriched table of events with product name
+    columns:
+      - name: session_id 
+        tests:
+          - not_null
+      - name: user_id 
+        tests:
+          - not_null
+
+  - name: int_sessions_users_products_aggregated
+    description: Aggregated table per session, per user, per product. Will assist for further product analysis
+
+  - name: int_sessions_users_aggregated
+    description: Aggregated table per session, per user, with some aggregations for funnel analysis
+
+  - name: int_order_products
+    description: Overall product orders done, and amounts sold.
