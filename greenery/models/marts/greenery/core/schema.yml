@@ -1,0 +1,31 @@
+version: 2
+
+models:
+  - name: int_user_orders
+    description: Intermediary table of User Statistics on purchases done
+    columns:
+      - name: user_id
+        tests:
+          - not_null
+      - name: avg_order_cost
+        tests:
+          - not_null
+          - positive_values
+      - name: orders_done
+        tests:
+          - not_null
+          - positive_values
+
+  - name: int_orders_extended
+    description: Enriched table of orders with Address,-user,-promo metadata
+    columns:
+      - name: order_id 
+        tests:
+          - unique
+      - name: user_id
+        tests:
+          - not_null
+
+
+  - name: int_events_extended
+    description: Aggregated 
