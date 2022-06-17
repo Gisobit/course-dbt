@@ -15,13 +15,6 @@ models:
         tests:
           - not_null
 
-  - name: fct_shipping_services
-    description: Aggregated Orders by shipping services.. can be expanded to identify high costs per state etc...
-    columns:
-      - name: shipping_service
-        tests:
-          - not_null
-
   - name: fct_website_funnel
     description: Daily Stats on DAU, users, funnel performance
 

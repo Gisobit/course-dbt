@@ -36,6 +36,14 @@ models:
       - name: user_id 
         tests:
           - not_null
+  
+  - name: fct_shipping_services
+    description: Aggregated Orders by shipping services.. can be expanded to identify high costs per state etc...
+    columns:
+      - name: shipping_service
+        tests:
+          - not_null
+
 
   - name: int_sessions_users_products_aggregated
     description: Aggregated table per session, per user, per product. Will assist for further product analysis
