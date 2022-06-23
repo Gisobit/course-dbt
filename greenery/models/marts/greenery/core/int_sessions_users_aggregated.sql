@@ -11,6 +11,8 @@ with sessions_aggregated as (
   , min(created_at) session_start
   , max(created_at) session_stop
   , count(distinct product_id) products_touched
+  , ARRAY_AGG(distinct product_id) products_array
+  , min(order_id) order_id_in_session -- hack to get any order_id. Each session has 1 order id max anyway.
   , count(distinct case when event_type = 'add_to_cart' then product_id end ) products_added_to_basket
   , count(distinct case when event_type = 'checkout' then product_id end ) products_checked_out
   , count(distinct case when event_type = 'page_view' then 1 end ) page_view

@@ -8,7 +8,7 @@ models:
         tests:
           - not_null
 
-  - name: fct_product_popularity
+  - name: fct_product_conversion_rate
     description: Overall ranked product list, with amount sold and some stats 
     columns:
       - name: product_name
