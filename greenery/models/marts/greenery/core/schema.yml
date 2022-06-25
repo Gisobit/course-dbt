@@ -50,6 +50,16 @@ models:
 
   - name: int_sessions_users_aggregated
     description: Aggregated table per session, per user, with some aggregations for funnel analysis
+    columns:
+      - name: page_view
+        description: column depicting page_views. We check if this event occurs, if it's not there, we have a tracking issue.
+        tests:
+        - dbt_expectations.expect_column_to_exist
 
   - name: int_order_products
     description: Overall product orders done, and amounts sold.
+
+
+macros:
+  - name: event_type_loop
+    description: A macro that generates dynamically columns based on a predefined event-type array.
