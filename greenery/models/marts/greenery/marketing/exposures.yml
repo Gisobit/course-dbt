@@ -1,0 +1,13 @@
+version: 2
+
+exposures:  
+  - name: Website Funnel Dashboard
+    description: >
+      Models that are critical to our funnel dashboard
+    type: dashboard
+    maturity: high
+    owner:
+      name: George Sotos
+      email: gsotos@greenery.com
+    depends_on:
+      - ref('fct_website_funnel')
